@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="manifest" href="manifest.json" />
+<title>Mini Expense</title>
+<style>
+  body{font-family:system-ui,Arial;margin:16px;max-width:680px}
+  header{display:flex;align-items:center;gap:8px}
+  input,button{font-size:16px;padding:10px;border-radius:10px;border:1px solid #ccc}
+  .row{display:flex;gap:8px;margin:8px 0}
+  ul{list-style:none;padding:0}
+  li{display:flex;justify-content:space-between;padding:8px;border-bottom:1px solid #eee}
+  .total{font-weight:700;margin-top:12px}
+</style>
+<header>
+  <img src="icons/icon-192.png" alt="" width="32" height="32">
+  <h1>Mini Expense</h1>
+</header>
+
+<div class="row">
+  <input id="amt" type="number" inputmode="decimal" placeholder="Amount" />
+  <input id="note" placeholder="Note" />
+  <button id="add">Add</button>
+</div>
+
+<ul id="list"></ul>
+<div class="total">Total: <span id="sum">0</span></div>
+
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+</html>
